@@ -1,0 +1,112 @@
+################################################################################
+       UniCon3D: de novo protein structure prediction using united-residue 
+          conformational search via stepwise, probabilistic sampling
+
+Purpose  :  United-residue protein folding via stepwise, probabilistic sampling
+Author   :  Debswapna Bhattacharya
+Lab      :  Bioinformatics, Data Mining, Machine Learning (BDM) Laboratory 
+            University of Missouri, Columbia MO 65211
+################################################################################
+
+Developer:
+		Debswapna Bhattacharya
+		Department of Computer Science
+		University of Missouri, Columbia
+		Email: db279@mail.missouri.edu
+
+Contact:
+		Jianlin Cheng, PhD
+		Department of Computer Science
+		University of Missouri, Columbia
+		Email: chengji@missouri.edu
+
+################################################################################
+1. INSTALLATION
+################################################################################
+
+Binaries for linux 64 bit system and osx has been included in the package and 
+no installation is needed when using binaries. The linux binary was compiled 
+using GNU Fortran (GCC) 4.1.2 20080704 (Red Hat 4.1.2-54) and the osx binary was 
+compiled using GNU Fortran (GCC) 5.1.0. Users need to have these versions of 
+Fortran and GCC compilers when using binaries. Alternatively, users may install 
+it from the source.
+
+Please Follow the below steps to install it from source:
+
+1) download and install Mocapy++ software package from sourceforge at:
+   http://sourceforge.net/projects/mocapy/
+
+2) copy and paste UniCon3D source code from /src folder in UniCon3D package 
+   to the examples folder of Mocapy++.
+   
+3) edit CMakeLists.txt file under examples folder of Mocapy++ to include FRAGSION:
+   SET(PROGS UniCon3D)
+
+4) compile and link it by typing make.
+
+   Installation is done!
+
+#################################################################################
+2. USAGE
+#################################################################################
+
+The binary UniCon3D has various options which can be seen during execution. 
+Run UniCon3D in help mode to explore the options:
+
+e.g. ./UniCon3D -h
+
+Usage: ./UniCon3D -i id -f fasta -s ss -c cmap -m model
+   -i id     : job id                                     : mandatory
+   -f fasta  : fasta file                                 : mandatory
+   -s ss     : secondary structure file                   : mandatory
+   -c cmap   : contact map file                           : mandatory
+   -m model  : model file                                 : mandatory
+   -d decoy  : number of decoys to generate               : optional (default is 100)
+   -x factor : increase monte carlo cycles by this factor : optional (default is 1)
+   -n native : native structure for comparison            : optional
+   -h help   : this message
+
+#################################################################################
+3. OUTPUT
+#################################################################################
+
+UniCon3D produces two types of output files: (1) decoys and (2) stats.
+
+(1) decoys : The decoy files are named as <Job-ID>_xxxxxx.pdb in united-residue 
+             format having coordinates of CA and SC atoms only. By default, 100
+             decoys are generated that can be changed by setting -d option. 
+
+(2) stats  : The folding statistics file is named as <Job-ID>_stats.txt and
+             contains the individual as well as weighted total energy for each
+             decoy. In case, the native structure is provided for comparison,
+             CA-rmsd of each decoy compared to the native is also shown. 
+
+#################################################################################
+4. TEST
+#################################################################################
+
+Please Follow the below steps to test it in linux environment:
+
+1) Go to the examples folder of UniCon3D package to locate example input files.
+
+2) Execute UniCon3D using exmaple input to generate 10 decoys:
+	 ../bin/linux/UniCon3D -i test -f test.fa -s test.ss -c test.cm -m ../lib/UniCon.iohmm -d 10
+
+3) 10 decoys are generated in the examples folder starting from test_000001.pdb to
+   test_000010.pdb and test_stats.txt contains the folding statistics.
+
+################################################################################
+5. DISCLAIMER
+################################################################################
+
+The executable software and the source code of UniCon3D is distributed free of 
+charge as it is to any non-commercial users. The authors hold no liabilities to 
+the performance of the program.
+
+#################################################################################
+6. RELEASE NOTES
+#################################################################################
+
+Version                  Released On                    Comments
+--------------------------------------------------------------------------------
+1.0                      March 2016                 First released version       
