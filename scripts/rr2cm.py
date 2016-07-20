@@ -1,20 +1,14 @@
+############################################################################
+# Author: Jie Hou, Debswapna Bhattacharya
+# Date: 2016/07/20
+############################################################################
+
+
+
 import sys
 import os
-import copy
-import gzip
-import math
-import types
-import threading
-import datetime
-import time
-from collections import defaultdict
-import string, re
-import itertools as it
-import itertools
-import random
-import linecache
 import optparse    # for option sorting
-import math
+import string, re
 
 parser = optparse.OptionParser()
 parser.add_option('--fasta', dest='fasta',
