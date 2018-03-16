@@ -1482,7 +1482,7 @@ void pose2pdb(vector<poseInfo> &pose, vector<pdbInfo> &pdb) {
     pdbData.aa = pose[1].aa;
     pdbData.ca.x = pose[1].bca;
     pdbData.ca.y = 0.0;
-    pdbData.ca.y = 0.0;
+    pdbData.ca.z = 0.0;
     pdbData.sc = pdbData.ca;
     pdb.push_back(pdbData);
     // set the third residue's CA atom by dihedral, bond angle and bond length
