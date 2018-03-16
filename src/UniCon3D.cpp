@@ -1558,7 +1558,7 @@ void pose2sample(vector<poseInfo> &pose, MDArray<double> &sample) {
         sample.set(2 * i, 3, pose[i].ss);
         sample.set(2 * i, 4, pose[i].bca);
         sample.set(2 * i, 5, pose[i].tao);
-        sample.set(2 * i, 5, pose[i].theta);
+        sample.set(2 * i, 6, pose[i].theta);
 
         sample.set(2 * i + 1, 0, 1);
         sample.set(2 * i + 1, 1, 0);
@@ -1566,7 +1566,7 @@ void pose2sample(vector<poseInfo> &pose, MDArray<double> &sample) {
         sample.set(2 * i + 1, 3, pose[i].ss);
         sample.set(2 * i + 1, 4, pose[i].bsc);
         sample.set(2 * i + 1, 5, pose[i].phi);
-        sample.set(2 * i + 1, 5, pose[i].delta);
+        sample.set(2 * i + 1, 6, pose[i].delta);
    }
 }
 
